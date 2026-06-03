@@ -1,5 +1,11 @@
 # Mountain Car DQN
 
+![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-2.x-EE4C2C?logo=pytorch&logoColor=white)
+![Gymnasium](https://img.shields.io/badge/Gymnasium-Classic--Control-009688)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Status](https://img.shields.io/badge/Project-RL%20Baseline-blue)
+
 A clean Deep Q-Network implementation for solving `MountainCar-v0` with PyTorch and Gymnasium.
 
 This project trains an agent to drive the underpowered car up the hill by learning a value function over the discrete action space. It includes checkpoint loading, reward-curve plotting, and policy rendering for quick experimentation.
@@ -46,6 +52,34 @@ pip install -r requirements.txt
 ```bash
 python "Mountain Car.py"
 ```
+
+## Training Results
+
+The implementation uses reward shaping to accelerate learning while keeping the environment objective unchanged during evaluation.
+
+### Typical Outcome
+
+| Metric | Typical Value |
+| --- | --- |
+| Environment | `MountainCar-v0` |
+| Episodes | `800` |
+| Max steps per episode | `500` |
+| Solved behavior | Agent consistently reaches the flag |
+| Checkpoint output | `mountaincar_dqn.pth` |
+
+### What You Should See During Training
+
+- Episode reward trend becoming less negative over time
+- Better last-50-episode average in later training windows
+- Stable greedy policy when rendering after training
+
+### Reproducibility Notes
+
+- Results vary between runs because seeds are not fixed.
+- For easier comparisons, train with the same hyperparameters each run.
+- Save your reward-curve screenshots and compare slope/plateau behavior.
+
+If you want strict repeatability, you can add fixed seeds for Python, NumPy, and PyTorch.
 
 ## Configuration
 
